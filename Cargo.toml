@@ -1,5 +1,5 @@
 [package]
 name = "resarith"
-version = "0.1.0"
+version = "0.1.1"
 authors = ["Arnaud-D <35631001+Arnaud-D@users.noreply.github.com>"]
 edition = "2018"

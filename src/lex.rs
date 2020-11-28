@@ -81,15 +81,16 @@ fn read_token(chars: &mut Vec<char>) -> Option<Token> {
                 }
             }
             State::NumberDecimal => {
-                match chars.pop().unwrap() {
-                    c @ '0'..='9' => {
-                        buffer.push(c);
+                match chars.pop() {
+                    c @ Some('0'..='9') => {
+                        buffer.push(c.unwrap());
                         state = State::NumberDecimal;
                     }
-                    c => {
+                    Some(c) => {
                         chars.push(c);
                         state = State::NumberFull
                     }
+                    None => state = State::NumberFull
                 }
             }
             State::NumberFull => {
